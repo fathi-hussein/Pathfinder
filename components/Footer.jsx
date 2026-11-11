@@ -1,8 +1,20 @@
-import React from 'react';
+
+
+
+
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { GraduationCap, Globe, Mail, MapPin, Heart } from 'lucide-react';
+import { GraduationCap, Globe, Mail, MapPin } from 'lucide-react';
 
 export default function Footer() {
+  const [currentYear, setCurrentYear] = useState(2026);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="mt-auto bg-slate-900 text-slate-400 text-sm font-sans border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
@@ -60,13 +72,13 @@ export default function Footer() {
             <h4 className="text-white font-semibold text-sm tracking-wide">Categories</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/explore/Web-development" className="hover:text-white transition">Web Developments</Link>
+                <Link href="/explore/Web-development" className="hover:text-white transition">Web Development</Link>
               </li>
               <li>
                 <Link href="/explore/Cyber-security" className="hover:text-white transition">Cyber Security</Link>
               </li>
               <li>
-                <Link href="/explore/AI" className="hover:text-white transition">Artificial Interligence</Link>
+                <Link href="/explore/AI" className="hover:text-white transition">Artificial Intelligence</Link>
               </li>
               <li>
                 <Link href="/explore/Data-science" className="hover:text-white transition">Data Science</Link>
@@ -93,7 +105,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
-          <p>© {new Date().getFullYear()} Pathfinder Hub. All rights reserved.</p>
+          <p>© {currentYear} Pathfinder Hub. All rights reserved.</p>
           <p className="flex items-center gap-1 text-slate-400">
             Crafted for developers and learners across East Africa & beyond
           </p>
